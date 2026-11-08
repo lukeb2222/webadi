@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Webadi · Digital Design Studio</title>
+  <meta name="description" content="Webadi is a digital design studio. This portfolio is private." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-locked">
+  <!-- ACCESS GATE -->
+  <section class="gate" id="gate" aria-labelledby="gate-title">
+    <div class="gate__noise" aria-hidden="true"></div>
+    <div class="gate__inner">
+      <h1 class="gate__logo" id="gate-title" aria-label="Webadi">
+        <span class="logo logo--gate" aria-hidden="true"><span class="ch">w</span><span class="ch">e</span><span class="ch">b</span><span class="ch">a</span><span class="ch">d</span><span class="ch logo__i">ı</span></span>
+      </h1>
+      <p class="gate__sub">Private portfolio. Enter the access code to continue.</p>
+      <form class="gate__form" id="gate-form" autocomplete="off">
+        <label for="gate-code" class="sr-only">Access code</label>
+        <input id="gate-code" name="code" type="password" placeholder="Access code" required autocapitalize="off" spellcheck="false" />
+        <button type="submit" aria-label="Unlock">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="gate__msg" id="gate-msg" role="status" aria-live="polite"></p>
+    </div>
+    <div class="gate__wipe" aria-hidden="true"></div>
+  </section>
+
+  <div id="app" hidden></div>
+
+  <noscript><p style="padding:2rem;font-family:sans-serif">This portfolio requires JavaScript.</p></noscript>
+  <script id="payload" type="application/json">__PAYLOAD__</script>
+  <script src="app.js"></script>
+</body>
+</html>
