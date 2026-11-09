@@ -451,11 +451,39 @@ section { position: relative; }
 
 /* ---------- About ---------- */
 .about { background: var(--ink); color: var(--paper); padding: clamp(6rem, 12vw, 10rem) 0; overflow: hidden; }
-.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.about__mark { color: var(--paper); }
+.about__head { border-bottom: 1.5px solid rgba(246,245,241,.18); padding-bottom: 1.6rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.logo--inline { font-size: 1em; letter-spacing: -0.05em; }
+.team { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
+.member {
+  position: relative;
+  padding: clamp(1.8rem, 3.5vw, 3rem);
+  border-radius: calc(var(--radius) + 6px);
+  background: var(--ink-2);
+  border: 1px solid rgba(246,245,241,.08);
+  overflow: hidden;
+  transition: border-color .5s, transform .6s var(--ease);
+}
+.member::before {
+  content: ''; position: absolute; width: 340px; height: 340px; right: -170px; top: -170px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(182,211,60,.22), transparent 70%);
+  transition: transform .9s var(--ease);
+}
+.member:hover { border-color: rgba(182,211,60,.5); transform: translateY(-6px); }
+.member:hover::before { transform: scale(1.5); }
+.member + .member { transition-delay: .12s; }
+.member__mark {
+  position: relative; display: inline-grid; place-items: center;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--lime); color: var(--ink);
+  font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em;
+  margin-bottom: 1.6rem;
+}
+.member h3 { position: relative; margin: 0; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1; letter-spacing: -0.045em; font-weight: 800; }
+.member .about__role { position: relative; margin: .7rem 0 1.6rem; }
 .about .eyebrow { color: var(--muted-dark); }
 .about__role { color: var(--lime); font-weight: 700; font-size: 1.15rem; margin: .8rem 0 1.6rem; }
-.about__copy p.bio { color: #c9c9c3; font-size: 1.12rem; margin: 0 0 1.2rem; max-width: 56ch; }
+.member p.bio { position: relative; color: #c9c9c3; font-size: 1.06rem; margin: 0 0 1.1rem; }
+.member p.bio:last-child { margin-bottom: 0; }
 
 /* ---------- Contact ---------- */
 .contact { padding: clamp(6rem, 12vw, 10rem) 0; }
@@ -512,7 +540,7 @@ section { position: relative; }
   .nav__links { display: none; }
   .project, .project--flip { grid-template-columns: 1fr; }
   .project--flip .project__visual { order: 0; }
-  .about__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .team { grid-template-columns: 1fr; }
   .hero__foot { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 560px) {
