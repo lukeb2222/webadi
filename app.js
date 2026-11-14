@@ -1,4 +1,4 @@
-/* Webadi portfolio: access gate + interactions */
+/* Webadi: public homepage, portfolio access gate + interactions */
 (() => {
   'use strict';
 
@@ -28,20 +28,50 @@
     return new TextDecoder().decode(plain);
   }
 
+  const publicEl = document.getElementById('public');
+  let lastFocus = null;
+
+  function openGate() {
+    lastFocus = document.activeElement;
+    gate.hidden = false;
+    document.body.classList.add('is-locked');
+    msg.textContent = '';
+    form.classList.remove('is-error', 'is-busy');
+    setTimeout(() => input.focus({ preventScroll: true }), reduceMotion ? 0 : 700);
+  }
+
+  function closeGate() {
+    if (gate.classList.contains('is-opening')) return;
+    gate.hidden = true;
+    document.body.classList.remove('is-locked');
+    input.value = '';
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('[data-open-gate]').forEach((el) => el.addEventListener('click', openGate));
+  gate.querySelector('[data-close-gate]').addEventListener('click', closeGate);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !gate.hidden) closeGate(); });
+
   async function unlock(code, { instant = false } = {}) {
     const html = await decrypt(code); // throws on a wrong code
     try { sessionStorage.setItem(SESSION_KEY, code); } catch (_) {}
-    app.innerHTML = html;
-    app.hidden = false;
-    document.body.classList.remove('is-locked');
+
+    const reveal = () => {
+      if (publicEl) publicEl.remove();
+      app.innerHTML = html;
+      app.hidden = false;
+      document.body.classList.remove('is-locked');
+      window.scrollTo(0, 0);
+      start(app);
+    };
 
     if (instant || reduceMotion) {
       gate.remove();
-      start();
+      reveal();
       return;
     }
     gate.classList.add('is-opening');
-    setTimeout(start, 650);                 // reveal content as the wipe passes
+    setTimeout(reveal, 650);                 // swap content as the wipe passes
     setTimeout(() => gate.remove(), 1350);
   }
 
@@ -63,39 +93,42 @@
     }
   });
 
-  // Stay unlocked for the rest of this browser session.
+  // The public homepage runs first; a visitor who already unlocked in this
+  // browser session goes straight back to the portfolio.
   const saved = (() => { try { return sessionStorage.getItem(SESSION_KEY); } catch (_) { return null; } })();
   if (saved) {
-    unlock(saved, { instant: true }).catch(() => { try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {} input.focus(); });
+    unlock(saved, { instant: true }).catch(() => {
+      try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {}
+      start(publicEl);
+    });
   } else {
-    setTimeout(() => input.focus({ preventScroll: true }), 900);
+    start(publicEl);
   }
 
-  /* ---------- Portfolio interactions ---------- */
-  function start() {
+  /* ---------- Interactions (public homepage and portfolio) ---------- */
+  function start(root) {
     document.body.classList.add('is-ready');
-    window.scrollTo(0, 0);
 
-    const year = app.querySelector('[data-year]');
+    const year = root.querySelector('[data-year]');
     if (year) year.textContent = new Date().getFullYear();
 
-    app.querySelector('[data-lock]')?.addEventListener('click', () => {
+    root.querySelector('[data-lock]')?.addEventListener('click', () => {
       try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {}
       location.reload();
     });
 
-    revealOnScroll();
-    navBehaviour();
+    revealOnScroll(root);
+    navBehaviour(root);
     if (!reduceMotion) {
-      parallaxScreens();
-      tiltCards();
-      magnetic();
-      cursor();
+      parallaxScreens(root);
+      tiltCards(root);
+      magnetic(root);
+      cursor(root);
     }
   }
 
-  function revealOnScroll() {
-    const els = app.querySelectorAll('.reveal, .reveal-up');
+  function revealOnScroll(root) {
+    const els = root.querySelectorAll('.reveal, .reveal-up');
     if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -105,9 +138,9 @@
     els.forEach((el) => io.observe(el));
   }
 
-  function navBehaviour() {
-    const nav = app.querySelector('#nav');
-    const bar = app.querySelector('.progress span');
+  function navBehaviour(root) {
+    const nav = root.querySelector('#nav');
+    const bar = root.querySelector('.progress span');
     let lastY = window.scrollY;
     let ticking = false;
     const update = () => {
@@ -124,8 +157,8 @@
   }
 
   // Screenshot inside each browser frame drifts slightly as you scroll.
-  function parallaxScreens() {
-    const imgs = [...app.querySelectorAll('.browser__screen > img')];
+  function parallaxScreens(root) {
+    const imgs = [...root.querySelectorAll('.browser__screen > img')];
     let ticking = false;
     const update = () => {
       imgs.forEach((img) => {
@@ -139,9 +172,9 @@
     update();
   }
 
-  function tiltCards() {
+  function tiltCards(root) {
     if (matchMedia('(hover: none)').matches) return;
-    app.querySelectorAll('.tilt').forEach((el) => {
+    root.querySelectorAll('.tilt').forEach((el) => {
       const card = el.querySelector('.browser');
       el.addEventListener('pointermove', (e) => {
         const r = el.getBoundingClientRect();
@@ -157,9 +190,9 @@
     });
   }
 
-  function magnetic() {
+  function magnetic(root) {
     if (matchMedia('(hover: none)').matches) return;
-    app.querySelectorAll('.magnetic').forEach((el) => {
+    root.querySelectorAll('.magnetic').forEach((el) => {
       const strength = el.classList.contains('contact__ig') ? 0.06 : 0.3;
       el.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), background .3s, color .3s';
       el.addEventListener('pointermove', (e) => {
@@ -172,14 +205,14 @@
     });
   }
 
-  function cursor() {
+  function cursor(root) {
     if (matchMedia('(hover: none), (pointer: coarse)').matches) return;
-    const dot = app.querySelector('.cursor');
+    const dot = root.querySelector('.cursor');
     if (!dot) return;
     let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
     addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; dot.classList.add('is-on'); }, { passive: true });
     document.addEventListener('pointerleave', () => dot.classList.remove('is-on'));
-    app.querySelectorAll('a, button').forEach((el) => {
+    root.querySelectorAll('a, button').forEach((el) => {
       el.addEventListener('pointerenter', () => dot.classList.add('is-big'));
       el.addEventListener('pointerleave', () => dot.classList.remove('is-big'));
     });

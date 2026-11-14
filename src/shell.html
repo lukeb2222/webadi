@@ -3,25 +3,201 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Webadi · Digital Design Studio</title>
-  <meta name="description" content="Webadi is a digital design studio. This portfolio is private." />
-  <meta name="robots" content="noindex, nofollow" />
+  <title>Webadi | Custom Website Design Studio in NYC &amp; Jackson Hole</title>
+  <meta name="description" content="Webadi is a web design studio in New York City and Jackson Hole building custom websites for restaurants, nonprofits and small businesses." />
+  <link rel="canonical" href="https://webadi.digital/" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#111111" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Webadi" />
+  <meta property="og:url" content="https://webadi.digital/" />
+  <meta property="og:title" content="Webadi | Custom Website Design Studio" />
+  <meta property="og:description" content="Custom websites for restaurants, nonprofits and small businesses in New York City and Jackson Hole." />
+  <meta property="og:image" content="https://webadi.digital/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Webadi: websites that feel alive." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Webadi | Custom Website Design Studio" />
+  <meta name="twitter:description" content="Custom websites for restaurants, nonprofits and small businesses in New York City and Jackson Hole." />
+  <meta name="twitter:image" content="https://webadi.digital/assets/og-image.png" />
+
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet" />
   <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://webadi.digital/#webadi",
+    "name": "Webadi",
+    "url": "https://webadi.digital/",
+    "logo": "https://webadi.digital/assets/logo.png",
+    "image": "https://webadi.digital/assets/og-image.png",
+    "description": "Webadi is a web design studio in New York City and Jackson Hole building custom websites for restaurants, nonprofits and small businesses.",
+    "slogan": "Websites that feel alive.",
+    "areaServed": [
+      { "@type": "City", "name": "New York City" },
+      { "@type": "Place", "name": "Jackson Hole, Wyoming" }
+    ],
+    "knowsAbout": ["Web design", "Website development", "Web animation", "Mobile-first design"],
+    "sameAs": ["https://www.instagram.com/webadi.bb/"]
+  }
+  </script>
 </head>
-<body class="is-locked">
-  <!-- ACCESS GATE -->
-  <section class="gate" id="gate" aria-labelledby="gate-title">
+<body>
+  <div class="public" id="public">
+    <div class="progress" aria-hidden="true"><span></span></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <a href="#top" class="nav__logo" aria-label="Webadi home">
+        <span class="logo">webad<span class="logo__i">ı</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--pill magnetic" href="https://www.instagram.com/webadi.bb/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="fill"/></svg>
+        @webadi.bb
+      </a>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__orb" aria-hidden="true"></div>
+        <div class="container">
+          <p class="eyebrow split-in"><span class="dot"></span>Web design studio · New York City &amp; Jackson Hole</p>
+          <h1 class="hero__title">
+            <span class="line"><span class="word">Websites</span> <span class="word">that</span></span>
+            <span class="line"><span class="word">feel</span> <span class="word accent">alive.</span></span>
+          </h1>
+          <div class="hero__foot">
+            <p class="hero__lead split-in">Webadi designs and builds custom websites for restaurants, nonprofits and small businesses, with a focus on clean design, considered detail and motion.</p>
+            <a href="#services" class="hero__scroll split-in" aria-label="Scroll to services">
+              <span>What we do</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Web design</span><i></i><span>Development</span><i></i><span>Motion &amp; interaction</span><i></i><span>Mobile-first</span><i></i><span>Launch support</span><i></i>
+          <span>Web design</span><i></i><span>Development</span><i></i><span>Motion &amp; interaction</span><i></i><span>Mobile-first</span><i></i><span>Launch support</span><i></i>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <section class="pub" id="services">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow reveal"><span class="num">01</span>Services</p>
+            <h2 class="reveal">Custom websites, designed and built end to end</h2>
+          </div>
+          <div class="pub-grid pub-grid--4">
+            <article class="pub-card reveal"><span class="pub-card__num">01</span><h3>Web design</h3><p>A look built around each client’s brand, never a template.</p></article>
+            <article class="pub-card reveal"><span class="pub-card__num">02</span><h3>Development</h3><p>Fast, mobile-first websites built with modern tools.</p></article>
+            <article class="pub-card reveal"><span class="pub-card__num">03</span><h3>Motion &amp; interaction</h3><p>Animation and detail that make a small business feel premium.</p></article>
+            <article class="pub-card reveal"><span class="pub-card__num">04</span><h3>Launch</h3><p>Live on the client’s own domain, with reservations, applications or donations working from day one.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section class="pub pub--alt" id="clients">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow reveal"><span class="num">02</span>Who we work with</p>
+            <h2 class="reveal">Small businesses and nonprofits</h2>
+          </div>
+          <div class="pub-grid pub-grid--3">
+            <article class="pub-card reveal"><h3>Restaurants &amp; hospitality</h3><p>Stylish websites that turn visitors into reservations and regulars.</p></article>
+            <article class="pub-card reveal"><h3>Nonprofits &amp; foundations</h3><p>Websites that tell an organization’s story and make it easy to apply or donate.</p></article>
+            <article class="pub-card reveal"><h3>Boutique service businesses</h3><p>Polished, personal websites that help owner-run businesses win new clients.</p></article>
+          </div>
+          <p class="pub-note reveal">Based in New York City and Jackson Hole, Wyoming, working with clients wherever they are.</p>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="pub" id="why">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow reveal"><span class="num">03</span>Why Webadi</p>
+            <h2 class="reveal">Crafted like an agency, personal like a friend</h2>
+          </div>
+          <div class="pub-grid pub-grid--4">
+            <article class="pub-card reveal"><h3>Custom, not templates</h3><p>Every site is designed around the client’s brand.</p></article>
+            <article class="pub-card reveal"><h3>Detail and motion</h3><p>Careful typography and animation that make small businesses look their best.</p></article>
+            <article class="pub-card reveal"><h3>Built to do a job</h3><p>Each site is designed around what the business needs most.</p></article>
+            <article class="pub-card reveal"><h3>Founder-led</h3><p>Clients work directly with the two partners who design and build their site.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO (gated) -->
+      <section class="pub-cta" id="portfolio">
+        <div class="container pub-cta__inner">
+          <div>
+            <p class="eyebrow reveal"><span class="num">04</span>Portfolio</p>
+            <h2 class="reveal">See our work</h2>
+            <p class="pub-cta__text reveal">Our client portfolio and team page are private. Enter the access code to view our projects.</p>
+          </div>
+          <button type="button" class="pub-cta__btn magnetic reveal" data-open-gate>
+            View portfolio
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <p class="eyebrow reveal"><span class="num">05</span>Contact</p>
+          <h2 class="contact__title reveal">Have a project in mind?</h2>
+          <a class="contact__ig magnetic reveal" href="https://www.instagram.com/webadi.bb/" target="_blank" rel="noopener">
+            <span class="contact__ig-label">Message us on Instagram</span>
+            <span class="contact__ig-handle">@webadi.bb</span>
+            <span class="contact__ig-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="logo">webad<span class="logo__i">ı</span></span>
+        <span>© <span data-year>2026</span> Webadi · Web design studio in New York City &amp; Jackson Hole</span>
+        <button class="footer__lock" type="button" data-open-gate>Client portfolio</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ACCESS GATE (opens from "View portfolio") -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
     <div class="gate__noise" aria-hidden="true"></div>
+    <button type="button" class="gate__close" data-close-gate aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
     <div class="gate__inner">
-      <h1 class="gate__logo" id="gate-title" aria-label="Webadi">
+      <p class="gate__logo" id="gate-title" aria-label="Webadi portfolio">
         <span class="logo logo--gate" aria-hidden="true"><span class="ch">w</span><span class="ch">e</span><span class="ch">b</span><span class="ch">a</span><span class="ch">d</span><span class="ch logo__i">ı</span></span>
-      </h1>
+      </p>
       <p class="gate__sub">Private portfolio. Enter the access code to continue.</p>
       <form class="gate__form" id="gate-form" autocomplete="off">
         <label for="gate-code" class="sr-only">Access code</label>
@@ -33,11 +209,10 @@
       <p class="gate__msg" id="gate-msg" role="status" aria-live="polite"></p>
     </div>
     <div class="gate__wipe" aria-hidden="true"></div>
-  </section>
+  </div>
 
   <div id="app" hidden></div>
 
-  <noscript><p style="padding:2rem;font-family:sans-serif">This portfolio requires JavaScript.</p></noscript>
   <script id="payload" type="application/json">__PAYLOAD__</script>
   <script src="app.js"></script>
 </body>

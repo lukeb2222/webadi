@@ -2,14 +2,19 @@
 
 Password-protected portfolio site for Webadi, a digital design studio.
 
-## How the protection works
+## Public homepage vs. private portfolio
 
-The portfolio content (`src/content.html`) is **encrypted** with the access code
-(AES-256-GCM, key derived with PBKDF2-SHA256) when the site is built. The published
-`index.html` only contains the access screen and an encrypted blob, so the content
-can't be read from the page source without the code. Once a visitor enters the
-correct code, it stays unlocked for that browser tab session ("Lock portfolio" in
-the footer re-locks it).
+`index.html` has two parts:
+
+- **Public homepage** (in `src/shell.html`): studio name, services, client types,
+  why Webadi, and Instagram contact. This is plain HTML that Google can index, with
+  SEO metadata, Open Graph tags and `ProfessionalService` structured data.
+  `robots.txt` and `sitemap.xml` sit in the site root.
+- **Private portfolio** (`src/content.html`): projects and team bios. It is
+  **encrypted** with the access code (AES-256-GCM, key derived with PBKDF2-SHA256)
+  at build time. "View portfolio" opens the access screen; the correct code replaces
+  the homepage with the portfolio, and it stays unlocked for that browser tab session
+  ("Lock portfolio" in its footer returns to the homepage).
 
 The access code is **not stored in this repo**. You pass it in at build time.
 
@@ -47,11 +52,13 @@ Copy one of the `<article class="project">` blocks in `src/content.html`, then:
 ## Structure
 
 ```
-index.html          built output (access screen + encrypted content)
+index.html          built output (public homepage + encrypted portfolio)
+robots.txt          lets search engines crawl the site
+sitemap.xml         page list for Google Search Console
 styles.css          all styles and animations
 app.js              access screen, decryption, scroll/hover animations
 build.mjs           encrypts src/content.html into index.html
-src/shell.html      template for index.html
+src/shell.html      public homepage + template for index.html
 src/content.html    portfolio content (git-ignored; recreate with `build.mjs unpack`)
 assets/             logos, screenshots, favicon, self-hosted Manrope font (OFL)
 ```
