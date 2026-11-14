@@ -54,6 +54,8 @@ Copy one of the `<article class="project">` blocks in `src/content.html`, then:
 ```
 index.html          built output (public homepage + encrypted portfolio)
 robots.txt          lets search engines crawl the site
+netlify.toml        Netlify settings: hides repo-only files, cache + security headers
+404.html            branded "page not found" page
 sitemap.xml         page list for Google Search Console
 styles.css          all styles and animations
 app.js              access screen, decryption, scroll/hover animations

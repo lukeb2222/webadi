@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,11 +26,9 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet" />
   <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.remove('no-js')</script>
 
   <script type="application/ld+json">
   {
@@ -51,6 +49,12 @@
     "sameAs": ["https://www.instagram.com/webadi.bb/"]
   }
   </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does Webadi do?", "acceptedAnswer": {"@type": "Answer", "text": "Webadi is a web design studio that designs and builds custom websites, from the first design to launch on the client’s own domain, including animation, mobile-first layouts and features like reservations, applications and donations."}}, {"@type": "Question", "name": "Who does Webadi build websites for?", "acceptedAnswer": {"@type": "Answer", "text": "Small businesses and nonprofits, including restaurants and hospitality businesses, nonprofits and foundations, and boutique service businesses."}}, {"@type": "Question", "name": "Where is Webadi based?", "acceptedAnswer": {"@type": "Answer", "text": "Webadi is based in New York City and Jackson Hole, Wyoming, and works with clients wherever they are."}}, {"@type": "Question", "name": "Are Webadi websites mobile-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Webadi website is designed mobile-first, so it looks and works great on phones, tablets and computers."}}, {"@type": "Question", "name": "Do you use templates?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every website is custom-designed around the client’s brand and what their business needs most."}}, {"@type": "Question", "name": "How do I start a project with Webadi?", "acceptedAnswer": {"@type": "Answer", "text": "Send a message to @webadi.bb on Instagram with a few details about your business and what you need."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "Webadi", "url": "https://webadi.digital/", "publisher": {"@id": "https://webadi.digital/#webadi"}}
+  </script>
 </head>
 <body>
   <div class="public" id="public">
@@ -65,6 +69,7 @@
         <a href="#services">Services</a>
         <a href="#clients">Clients</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="btn btn--pill magnetic" href="https://www.instagram.com/webadi.bb/" target="_blank" rel="noopener">
@@ -165,10 +170,46 @@
         </div>
       </section>
 
+      <!-- FAQ -->
+      <section class="pub" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow reveal"><span class="num">05</span>FAQ</p>
+            <h2 class="reveal">Questions, answered</h2>
+          </div>
+          <div class="faq">
+            <details class="faq__item reveal">
+              <summary><h3>What does Webadi do?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>Webadi is a web design studio that designs and builds custom websites, from the first design to launch on the client’s own domain, including animation, mobile-first layouts and features like reservations, applications and donations.</p>
+            </details>
+            <details class="faq__item reveal">
+              <summary><h3>Who does Webadi build websites for?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>Small businesses and nonprofits, including restaurants and hospitality businesses, nonprofits and foundations, and boutique service businesses.</p>
+            </details>
+            <details class="faq__item reveal">
+              <summary><h3>Where is Webadi based?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>Webadi is based in New York City and Jackson Hole, Wyoming, and works with clients wherever they are.</p>
+            </details>
+            <details class="faq__item reveal">
+              <summary><h3>Are Webadi websites mobile-friendly?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>Yes. Every Webadi website is designed mobile-first, so it looks and works great on phones, tablets and computers.</p>
+            </details>
+            <details class="faq__item reveal">
+              <summary><h3>Do you use templates?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>No. Every website is custom-designed around the client’s brand and what their business needs most.</p>
+            </details>
+            <details class="faq__item reveal">
+              <summary><h3>How do I start a project with Webadi?</h3><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p>Send a message to @webadi.bb on Instagram with a few details about your business and what you need.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <!-- CONTACT -->
       <section class="contact" id="contact">
         <div class="container">
-          <p class="eyebrow reveal"><span class="num">05</span>Contact</p>
+          <p class="eyebrow reveal"><span class="num">06</span>Contact</p>
           <h2 class="contact__title reveal">Have a project in mind?</h2>
           <a class="contact__ig magnetic reveal" href="https://www.instagram.com/webadi.bb/" target="_blank" rel="noopener">
             <span class="contact__ig-label">Message us on Instagram</span>

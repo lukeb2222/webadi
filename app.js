@@ -52,11 +52,22 @@
   gate.querySelector('[data-close-gate]').addEventListener('click', closeGate);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !gate.hidden) closeGate(); });
 
+  // Display fonts used only by client logos inside the portfolio.
+  function loadPortfolioFonts() {
+    if (document.getElementById('portfolio-fonts')) return;
+    const l = document.createElement('link');
+    l.id = 'portfolio-fonts';
+    l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@500&display=swap';
+    document.head.appendChild(l);
+  }
+
   async function unlock(code, { instant = false } = {}) {
     const html = await decrypt(code); // throws on a wrong code
     try { sessionStorage.setItem(SESSION_KEY, code); } catch (_) {}
 
     const reveal = () => {
+      loadPortfolioFonts();
       if (publicEl) publicEl.remove();
       app.innerHTML = html;
       app.hidden = false;
