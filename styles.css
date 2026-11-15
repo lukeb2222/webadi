@@ -652,3 +652,5 @@ section { position: relative; }
 /* ---------- Without JavaScript, show everything ---------- */
 .no-js .reveal, .no-js .reveal-up, .no-js .split-in, .no-js .hero__title .word { opacity: 1; transform: none; }
 .no-js .hero__title .accent::after { transform: scaleX(1); }
+.project__logo--saverine { background: #EDE6D6; padding: .9rem 1.3rem; }
+.project__logo--saverine img.wide { height: 52px; }
