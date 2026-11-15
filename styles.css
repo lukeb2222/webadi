@@ -656,3 +656,21 @@ section { position: relative; }
 .project__logo--saverine img.wide { height: 52px; }
 
 picture { display: contents; }
+
+/* ---------- Founder quote ---------- */
+.quote { padding: clamp(6rem, 11vw, 9rem) 0 0; }
+.quote__fig { margin: 0; position: relative; max-width: 1100px; }
+.quote__mark {
+  display: block; font-weight: 800; color: var(--lime);
+  font-size: clamp(7rem, 14vw, 12rem); line-height: .6; height: .45em; margin-bottom: .5rem;
+}
+.quote__mark.is-in { animation: quotePop 1s var(--ease) both; }
+@keyframes quotePop { from { transform: scale(.4) rotate(-12deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.quote__text {
+  margin: 0; font-weight: 800; letter-spacing: -0.045em; line-height: 1.05;
+  font-size: clamp(2.2rem, 5.6vw, 4.6rem);
+  transition-delay: .1s;
+}
+.quote__by { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; font-size: 1.1rem; color: var(--muted); transition-delay: .25s; }
+.quote__by b { color: var(--ink); }
+.quote__line { width: 48px; height: 3px; border-radius: 3px; background: var(--lime); }
