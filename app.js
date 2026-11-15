@@ -31,7 +31,24 @@
   const publicEl = document.getElementById('public');
   let lastFocus = null;
 
+  // While the visitor types the code, start fetching the first portfolio
+  // screenshots so they are already cached when the portfolio appears.
+  function warmPortfolioImages() {
+    if (document.getElementById('warm-0')) return;
+    ['maxmartin', 'sushikoya'].forEach((n, i) => {
+      const l = document.createElement('link');
+      l.id = 'warm-' + i;
+      l.rel = 'preload';
+      l.as = 'image';
+      l.type = 'image/avif';
+      l.setAttribute('imagesrcset', `assets/img/${n}-preview-700.avif 700w, assets/img/${n}-preview-1300.avif 1300w`);
+      l.setAttribute('imagesizes', '(max-width: 900px) 92vw, 680px');
+      document.head.appendChild(l);
+    });
+  }
+
   function openGate() {
+    warmPortfolioImages();
     lastFocus = document.activeElement;
     gate.hidden = false;
     document.body.classList.add('is-locked');
@@ -169,11 +186,11 @@
 
   // Screenshot inside each browser frame drifts slightly as you scroll.
   function parallaxScreens(root) {
-    const imgs = [...root.querySelectorAll('.browser__screen > img')];
+    const imgs = [...root.querySelectorAll('.browser__screen > picture > img')];
     let ticking = false;
     const update = () => {
       imgs.forEach((img) => {
-        const r = img.parentElement.getBoundingClientRect();
+        const r = img.closest('.browser__screen').getBoundingClientRect();
         const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; // -1..1 around centre
         img.style.setProperty('--py', `${(-p * 6).toFixed(2)}%`);
       });
