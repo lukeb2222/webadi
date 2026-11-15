@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /share/
 
 Sitemap: https://webadi.digital/sitemap.xml
