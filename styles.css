@@ -674,3 +674,7 @@ picture { display: contents; }
 .quote__by { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; font-size: 1.1rem; color: var(--muted); transition-delay: .25s; }
 .quote__by b { color: var(--ink); }
 .quote__line { width: 48px; height: 3px; border-radius: 3px; background: var(--lime); }
+.project__logo--axol { background: #09090B; padding: .7rem 1.1rem; }
+.project__logo--axol img.wide { height: 50px; }
+.project__logo--bbt { background: #111B2D; padding: 1rem 1.3rem; }
+.project__logo--bbt img.wide { height: 40px; }
