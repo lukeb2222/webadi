@@ -64,3 +64,9 @@ src/shell.html      public homepage + template for index.html
 src/content.html    portfolio content (git-ignored; recreate with `build.mjs unpack`)
 assets/             logos, screenshots, favicon, self-hosted Manrope font (OFL)
 ```
+
+## Project inquiries and consultations
+
+Before merging to production, provision a private PostgreSQL database (use an isolated database for branch tests) and apply `src/inquiry-schema.sql`. Set `DATABASE_URL` for Netlify Functions in the relevant deploy contexts, never in the repository. Use a restricted database role with rights only to these tables and the inquiry identity sequence. Review new inquiries and bookings in these tables; this port does not send email notifications. Bookings are 20 minutes at the displayed Eastern time.
+
+Check the preview on mobile, submit a quote, open its consultation link, pick a slot, and reload to see the confirmation. Use a second inquiry to verify the booked slot no longer appears. Test a concurrent booking attempt and verify only one reservation survives. Check that the original passcode still unlocks the homepage portfolio and that invalid codes do not.
