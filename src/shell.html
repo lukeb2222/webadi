@@ -11,10 +11,12 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Webadi" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://webadi.digital/" />
   <meta property="og:title" content="Webadi | Custom Website Design Studio" />
   <meta property="og:description" content="Custom websites for restaurants, nonprofits and small businesses in New York City and Jackson Hole." />
   <meta property="og:image" content="https://webadi.digital/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Webadi: websites that feel alive." />
@@ -22,6 +24,7 @@
   <meta name="twitter:title" content="Webadi | Custom Website Design Studio" />
   <meta name="twitter:description" content="Custom websites for restaurants, nonprofits and small businesses in New York City and Jackson Hole." />
   <meta name="twitter:image" content="https://webadi.digital/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Webadi: websites that feel alive." />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48" />
@@ -37,15 +40,27 @@
     "@id": "https://webadi.digital/#webadi",
     "name": "Webadi",
     "url": "https://webadi.digital/",
-    "logo": "https://webadi.digital/assets/logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://webadi.digital/assets/logo.png",
+      "width": 512,
+      "height": 512
+    },
     "image": "https://webadi.digital/assets/og-image.png",
     "description": "Webadi is a web design studio in New York City and Jackson Hole building custom websites for restaurants, nonprofits and small businesses.",
     "slogan": "Websites that feel alive.",
+    "founder": { "@type": "Person", "name": "Luke Balyasny", "jobTitle": "Founder" },
     "areaServed": [
       { "@type": "City", "name": "New York City" },
       { "@type": "Place", "name": "Jackson Hole, Wyoming" }
     ],
     "knowsAbout": ["Web design", "Website development", "Web animation", "Mobile-first design"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "url": "https://www.instagram.com/webadi.bb/",
+      "availableLanguage": "English"
+    },
     "sameAs": ["https://www.instagram.com/webadi.bb/"]
   }
   </script>
@@ -53,7 +68,7 @@
   {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does Webadi do?", "acceptedAnswer": {"@type": "Answer", "text": "Webadi is a web design studio that designs and builds custom websites, from the first design to launch on the client’s own domain, including animation, mobile-first layouts and features like reservations, applications and donations."}}, {"@type": "Question", "name": "Who does Webadi build websites for?", "acceptedAnswer": {"@type": "Answer", "text": "Small businesses and nonprofits, including restaurants and hospitality businesses, nonprofits and foundations, and boutique service businesses."}}, {"@type": "Question", "name": "Where is Webadi based?", "acceptedAnswer": {"@type": "Answer", "text": "Webadi is based in New York City and Jackson Hole, Wyoming, and works with clients wherever they are."}}, {"@type": "Question", "name": "Are Webadi websites mobile-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Webadi website is designed mobile-first, so it looks and works great on phones, tablets and computers."}}, {"@type": "Question", "name": "Do you use templates?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every website is custom-designed around the client’s brand and what their business needs most."}}, {"@type": "Question", "name": "How do I start a project with Webadi?", "acceptedAnswer": {"@type": "Answer", "text": "Send a message to @webadi.bb on Instagram with a few details about your business and what you need."}}]}
   </script>
   <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "WebSite", "name": "Webadi", "url": "https://webadi.digital/", "publisher": {"@id": "https://webadi.digital/#webadi"}}
+  {"@context": "https://schema.org", "@type": "WebSite", "@id": "https://webadi.digital/#website", "name": "Webadi", "url": "https://webadi.digital/", "inLanguage": "en-US", "publisher": {"@id": "https://webadi.digital/#webadi"}}
   </script>
 </head>
 <body>
@@ -242,7 +257,7 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <span class="logo">webad<span class="logo__i">ı</span></span>
+        <span class="logo" aria-hidden="true">webad<span class="logo__i">ı</span></span><span class="sr-only">Webadi</span>
         <span>© <span data-year>2026</span> Webadi · Web design studio in New York City &amp; Jackson Hole</span>
         <button class="footer__lock" type="button" data-open-gate>Client portfolio</button>
       </div>

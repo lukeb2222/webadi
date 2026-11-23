@@ -46,3 +46,15 @@
   for = "/share/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Keep utility pages out of search results without blocking crawlers from
+# seeing the noindex (robots.txt no longer disallows /share/ for that reason).
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/google0ae502795769c4b6.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
